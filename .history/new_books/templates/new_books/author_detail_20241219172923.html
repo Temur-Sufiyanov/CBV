@@ -1,0 +1,20 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    {{auth.name}}
+{% endblock title %}
+{% block content %}
+    <h3 class="text-center">{{auth.name}}</h3>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>
+                {{message}}
+            </li>
+            {% endfor %}      
+        </ul>
+    {% endif %}
+    <a href="{% url  %}" role="button">Back to Authors</a>
+        
+{% endblock content %}
+    

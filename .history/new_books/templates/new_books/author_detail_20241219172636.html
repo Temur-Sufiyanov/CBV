@@ -1,0 +1,14 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    {{author.name}}
+{% endblock title %}
+{% block content %}
+    
+    {% if messages %}
+        <ul class="messages">
+        </ul>
+    {% endif %}
+        
+{% endblock content %}
+    

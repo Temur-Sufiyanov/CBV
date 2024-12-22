@@ -1,0 +1,23 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Authors
+{% endblock title %}
+
+{% block content %}
+    <h3 class="text-center">Authors</h3>
+    
+    {% if authors %}
+        <ul class="list-group">
+        {% for author in authors  %}
+            <li class="list-group-item">
+                <a href="">{{author.name}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-center">There is no orders to display</p>
+    {% endif %}
+        
+{% endblock content %}
+    

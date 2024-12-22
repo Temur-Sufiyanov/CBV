@@ -1,0 +1,37 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Home Page
+{% endblock title %}
+
+{% block content %}
+<h3>Bookstore collections</h3>
+<a href="" role=""></a>
+{% comment %} <div class="container mt-4">
+    <h1 class="text-center">Books and Authors</h1>
+    <table class="table table-bordered mt-4">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Book Name</th>
+                <th>Author Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for book in books %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.author.name }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3" class="text-center">No books available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div> {% endcomment %}
+{% endblock content %}
+    
+    

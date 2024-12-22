@@ -1,0 +1,31 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Editing books for {{author_b.name}}
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="text-center">Update Author Collections</h3>
+        
+        {% for book_form in form.forms %}
+            <hr>
+            <h5 class="text-center">
+                {% if book_form.instance.id %}
+                    Book: {{book_form.instance.name}}
+                {% else %}
+                    
+                    {% if  %}
+                        
+                    {% endif %}
+                        
+                {% endif %}
+                    
+            </h5>
+        {% endfor %}
+            
+    </form>
+{% endblock content %}
+    
+    

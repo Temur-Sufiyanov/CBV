@@ -1,0 +1,42 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Editing books for {{author_b.name}}
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <h3 class="text-center">Update Author Collections</h3>
+        
+        {% for book_form in form.forms %}
+            <hr>
+            <h5 class="text-center">
+                {% if book_form.instance.id %}
+                    Book: {{book_form.instance.name}}
+                {% else %}
+                    {% if form.forms|length > 1 %}
+                        Add another book
+                    {% else %}
+                        Add a book
+                    {% endif %}
+                {% endif %}
+            </h5>
+                            
+            {% for hidden_fields in book_form.hidden_fields %}
+            {{hidden_fields.errors}}
+             {% endfor %}
+            
+        <table>
+            {{book_from.as_table}}
+        </table> 
+        {% endfor %}
+        <p>
+            <hr>
+            <button type="submit" class="btn btn-primary w-100 mb-3">Update Collection</button>
+            <a href="{{ author_b.get_absolute_url }}" role="button" class="btn btn-secondary w-100">Cancel</a>
+        </p> 
+    </form>
+{% endblock content %}
+    
+    

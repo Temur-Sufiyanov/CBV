@@ -1,0 +1,16 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    New Author
+{% endblock title %}
+
+{% block content %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            {{fir}}
+        {% endfor %}
+            
+    </form>
+{% endblock content %}
+    

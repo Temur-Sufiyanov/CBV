@@ -1,0 +1,37 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    {{auth.name}}
+{% endblock title %}
+{% block content %}
+    <h3 class="text-center">{{auth.name}}</h3>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li>
+                {{message}}
+            </li>
+            {% endfor %}      
+        </ul>
+    {% endif %}
+    <h3>Authors Books Details</h3>
+    <div class="d-flex d-flex-inline">
+        <span class="pe-2">Authors name:</span>
+        <h5>{{auth.name|title}}</h5>
+    </div>
+    <hr>
+    
+    {% for book in author.books.all %}
+        <div class="small">Book ID: {{book.id}}</div>
+        <div class=""> Title: {{book.name}}</div>
+        <hr>
+    {% endfor %}
+    <p>
+        <a href="{% url 'books:author_books_edit'  %}" role="button" class="btn btn-primary w-100 mt-2"> Edit Authors Books</a>
+        <a href="{% url 'books:authors' %}" role="button" class="btn btn-secondary w-100 mt-2">All Collections</a>
+    </p>
+        
+    <a href="{% url 'books:authors' %}" role="button" class="btn btn-secondary w-100 mt-2" >Back to Authors</a>
+        
+{% endblock content %}
+    

@@ -1,0 +1,21 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Editing books for {{author.name}}
+{% endblock title %}
+
+{% block content %}
+    <form action="{% url 'books:author_books_edit' author.pk %}" method="post">
+        {% csrf_token %}
+        <h3 class="text-center">Update Author Collections</h3>
+        {{ form.management_form }}
+        {% for book_form in form.forms %}
+            {{book_form.as_table}}
+        {% endfor %}
+        <hr>
+        <button type="submit" class="btn btn-primary w-100">Update Collection</button>
+        <a href="{{ author.get_absolute_url }}" role="button" class="btn btn-secondary w-100">Cancel</a>
+    </form>
+{% endblock content %}
+    
+    

@@ -1,0 +1,29 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Authors
+{% endblock title %}
+
+{% block content %}
+    <h3 class="text-center">Authors</h3>
+    
+    {% if authors %}
+        <ul class="list-group">
+        {% for author in authors  %}
+            <li class="list-group-item">
+                <a href="{% url 'books:author_detail' author.pk %}" class="text-reset">{{author.name}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p class="text-center">There are no Authors to display!</p>
+    {% endif %}
+    <h3>Authors Books Details</h3>
+    <div class="d-flex d-flex-inline">
+        <span class="pe-2">Authors name:</span>
+
+    </div>
+    <p class="text-right"><a href="{% url 'books:home' %}" role="button" class="
+        btn btn-secondary w-100 mt-2">Return to Home Page</a></p>
+{% endblock content %}
+    

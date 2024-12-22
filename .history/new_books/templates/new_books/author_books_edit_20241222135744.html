@@ -1,0 +1,20 @@
+{% extends 'new_books/base.html' %}
+
+{% block title %}
+    Editing books for {{author.name}}
+{% endblock title %}
+
+{% block content %}
+<form action="{% url 'books:author_books_edit' author.pk %}" method="post">
+    {% csrf_token %}
+    {{ form.management_form }}
+    {% for book_form in form.forms %}
+        {{ book_form.errors }}
+        {{ book_form.as_table }}
+    {% endfor %}
+    <button type="submit">Save</button>
+</form>
+
+{% endblock content %}
+    
+    
